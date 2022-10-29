@@ -1,0 +1,50 @@
+1.查看仓库的状态（是否有文件被修改或暂存等）
+git status
+2.查看具体修改了什么，和之前的有什么差异
+git diff
+
+版本回退：
+1.查看已经提交的版本的信息
+git log
+例子：
+commit 9fadc76fdc28ac34cab5370b0494e4b48e37d3d6
+Author: luoyu-buaa <861392049@qq.com>
+Date:   Wed Oct 26 10:26:15 2022 +0800
+
+    first
+其中，commit后面跟的一长串是版本号，"first"是commit提交时的信息内容，可以理解成名字。
+
+2.不同版本的写法
+HEAD        当前版本；
+HEAD^     上一个版本；
+HEAD^^   上上个版本；
+HEAD~100 往上100个版本。
+
+回退到上一个版本：
+git reset --hard HEAD^
+
+3.查看自己做的每次对版本进行操作的指令：
+git relflog
+注：时间最近的指令排在cmd的最上面。
+
+撤销修改：
+1.撤销未加入暂存区的修改：
+git restore 文件名
+2.撤销已加入暂存区的修改:
+git restore --staged 文件名
+
+删除文件
+在删除文件后，
+先git add/rm (两个指令均可）
+再 git commit
+版本库中就删除该文件了
+
+恢复文件：
+在删除后，使用
+git restore 文件名
+可以用版本库中的该文件来恢复到工作区中
+（如果在恢复前，你已经用commit命令提交了删除操作，那么版本库中就没有
+该文件了，你就无法用该命令恢复了！）
+
+
+
